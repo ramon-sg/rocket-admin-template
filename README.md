@@ -4,6 +4,10 @@
 
 # Preview
 
+### Screenshot
+
+![Rocket admin template preview](resources/preview.png)
+
 ### Demo Site: [[Here]](https://rocket-admin-template.clouw.com)
 
 ## Features
