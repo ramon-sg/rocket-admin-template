@@ -1,0 +1,24 @@
+<!-- Sidebar -->
+<div x-show="sidebar" @click="sidebar=false"
+  class="absolute top-0 z-20 w-screen h-screen bg-black bg-opacity-60 md:hidden"></div>
+
+<div x-show="sidebar" x-transition:enter="transition duration-300"
+  x-transition:enter-start="transform -translate-x-full" x-transition:enter-end="transform translate-x-0"
+  x-transition:leave="transition duration-300" x-transition:leave-start="transform"
+  x-transition:leave-end="transform -translate-x-full"
+  class="md:!block z-20 flex-shrink-0 fixed top-0 left-0 w-60 bg-blueGray-800 h-screen">
+  <a href="/" class="flex items-center flex-shrink-0 px-6 bg-blue-600 h-14">
+    <img class="h-9" src="/images/logo.png" alt="" />
+  </a>
+
+  <div class="flex flex-col text-gray-300">
+    {{> sidebar/title name="Shop" }}
+    {{> sidebar/item name="Users" icon="fas fa-users" active=true }}
+    {{> sidebar/item name="Products" icon="far fa-list-alt" active=false }}
+    {{> sidebar/item name="Orders" icon="fas fa-cart-plus" active=false }}
+
+    {{> sidebar/title name="System" icon="fas fa-cart-plus" active=false }}
+    {{> sidebar/item name="Setup" icon="far fa-circle" active=false}}
+    {{> sidebar/item name="Jobs" icon="far fa-circle" active=false}}
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Rocket admin template</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link rel="stylesheet" href="/css/tailwind.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body x-data="{ sidebar: false }" class="font-sans bg-blueGray-100">
+    <div class="flex">
+      {{> sidebar }}
+
+      <div class="flex flex-col w-full h-screen md:pl-60">
+        {{> header }}
+
+        <div class="flex-1 w-full h-screen p-8 overflow-y-auto">
+          {{> content }}
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/js/index.js"></script>
+  </body>
+</html>

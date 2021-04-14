@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Rocket admin template</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+  <script type="module" crossorigin src="/assets/index.03f9dbd5.js"></script>
+  <link rel="modulepreload" href="/assets/vendor.4f4cfc99.js">
+  <link rel="stylesheet" href="/assets/index.7d9bfff4.css">
+</head>
+
+  <body x-data="{ sidebar: false }" class="font-sans bg-blueGray-100">
+    <div class="flex">
+      <!-- Sidebar -->
+      <div x-show="sidebar" @click="sidebar=false"
+        class="absolute top-0 z-20 w-screen h-screen bg-black bg-opacity-60 md:hidden"></div>
+      
+      <div x-show="sidebar" x-transition:enter="transition duration-300"
+        x-transition:enter-start="transform -translate-x-full" x-transition:enter-end="transform translate-x-0"
+        x-transition:leave="transition duration-300" x-transition:leave-start="transform"
+        x-transition:leave-end="transform -translate-x-full"
+        class="md:!block z-20 flex-shrink-0 fixed top-0 left-0 w-60 bg-blueGray-800 h-screen">
+        <a href="/" class="flex items-center flex-shrink-0 px-6 bg-blue-600 h-14">
+          <img class="h-9" src="/assets/logo.32fb5798.png" alt="" />
+        </a>
+      
+        <div class="flex flex-col text-gray-300">
+          <div class="uppercase text-xs text-blueGray-600 font-semibold ml-6 mt-6 mb-3">
+            Shop
+          </div>
+          <a href="#" class="
+              flex items-center py-2 pl-5 pr-4 mr-5 space-x-3 text-sm font-light
+              bg-blue-500 border-l-4 border-blue-500 bg-opacity-10
+                ">
+            <div class="w-5 text-xs">
+              <i class="fas fa-users"></i>
+            </div>
+          
+            <div class="w-full">Users</div>
+          
+            <div class="w-5 ml-auto text-xs">
+            </div>
+          </a>    <a href="#" class="
+              flex items-center py-2 pl-5 pr-4 mr-5 space-x-3 text-sm font-light
+           hover:border-blue-500 hover:bg-blue-500 hover:bg-opacity-10
+            ">
+            <div class="w-5 text-xs">
+              <i class="far fa-list-alt"></i>
+            </div>
+          
+            <div class="w-full">Products</div>
+          
+            <div class="w-5 ml-auto text-xs">
+            </div>
+          </a>    <a href="#" class="
+              flex items-center py-2 pl-5 pr-4 mr-5 space-x-3 text-sm font-light
+           hover:border-blue-500 hover:bg-blue-500 hover:bg-opacity-10
+            ">
+            <div class="w-5 text-xs">
+              <i class="fas fa-cart-plus"></i>
+            </div>
+          
+            <div class="w-full">Orders</div>
+          
+            <div class="w-5 ml-auto text-xs">
+            </div>
+          </a>
+          <div class="uppercase text-xs text-blueGray-600 font-semibold ml-6 mt-6 mb-3">
+            System
+          </div>
+          <a href="#" class="
+              flex items-center py-2 pl-5 pr-4 mr-5 space-x-3 text-sm font-light
+           hover:border-blue-500 hover:bg-blue-500 hover:bg-opacity-10
+            ">
+            <div class="w-5 text-xs">
+              <i class="far fa-circle"></i>
+            </div>
+          
+            <div class="w-full">Setup</div>
+          
+            <div class="w-5 ml-auto text-xs">
+            </div>
+          </a>    <a href="#" class="
+              flex items-center py-2 pl-5 pr-4 mr-5 space-x-3 text-sm font-light
+           hover:border-blue-500 hover:bg-blue-500 hover:bg-opacity-10
+            ">
+            <div class="w-5 text-xs">
+              <i class="far fa-circle"></i>
+            </div>
+          
+            <div class="w-full">Jobs</div>
+          
+            <div class="w-5 ml-auto text-xs">
+            </div>
+          </a>  </div>
+      </div>
+      <div class="flex flex-col w-full h-screen md:pl-60">
+        <header class="mb-1 bg-white shadow">
+          <div class="flex w-full h-14">
+            <div class="flex justify-between w-full">
+              <!-- Sidebar menu -->
+              <a @click="sidebar=true" class="flex items-center justify-center px-8 border-r border-gray-200 md:hidden">
+                <i class="fas fa-bars"></i>
+              </a>
+        
+              <!-- Search -->
+              <div class="flex items-center justify-center w-full px-8 space-x-3">
+                <a href="#">
+                  <div class="text-gray-400 text-md hover:text-gray-500">
+                    <i class="fas fa-search"></i>
+                  </div>
+                </a>
+        
+                <input class="w-full h-full text-xs outline-none" type="text" placeholder="Search..." />
+              </div>
+        
+              <!-- User Menu -->
+              <button x-data="{ 'isOpen': false }" @click="isOpen = !isOpen" @click.away="isOpen = false"
+                class="flex items-center flex-shrink-0 h-full px-8 ml-auto border-l border-gray-200 focus:outline-none">
+                <div class="flex items-center text-xs">
+                  <div
+                    class="relative z-10 flex items-center justify-center text-sm font-bold text-white uppercase bg-blue-500 rounded-full shadow-lg w-7 h-7">
+                    j
+                  </div>
+        
+                  <div class="hidden ml-1 md:block">Jace Beleren</div>
+        
+                  <div class="relative ml-3 text-gray-500">
+                    <i class="fas fa-angle-down"></i>
+        
+                    <!-- Menu -->
+                    <div x-show="isOpen" x-transition:enter="transition ease-out origin-top-left duration-200"
+                      x-transition:enter-start="opacity-0 transform scale-90"
+                      x-transition:enter-end="opacity-100 transform scale-100"
+                      x-transition:leave="transition origin-top-left ease-in duration-100"
+                      x-transition:leave-start="opacity-100 transform scale-100"
+                      x-transition:leave-end="opacity-0 transform scale-90"
+                      class="absolute right-0 z-20 w-48 mt-2 overflow-hidden font-normal bg-white border rounded shadow">
+                      <div class="flex flex-col text-sm text-left">
+                        <a class="flex items-center px-4 py-2 hover:bg-gray-100" href="#">
+                          <div class="w-5 mr-2">
+                            <i class="far fa-user"></i>
+                          </div>
+        
+                          <div>Settings</div>
+                        </a>
+        
+                        <a class="flex items-center px-4 py-2 hover:bg-gray-100" href="#">
+                          <div class="w-5 mr-2">
+                            <i class="fas fa-key"></i>
+                          </div>
+        
+                          <div>Change Password</div>
+                        </a>
+        
+                        <div class="bg-gray-200 border-b"></div>
+                        <a class="flex items-center px-4 py-2 hover:bg-gray-100" href="#">
+                          <div class="w-5 mr-2">
+                            <i class="fas fa-sign-out-alt"></i>
+                          </div>
+        
+                          <div>Logout</div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </header>
+        <div class="flex-1 w-full h-screen p-8 overflow-y-auto">
+          <!-- Header -->
+          <div class="flex justify-between">
+            <!-- Title -->
+            <div class="flex flex-col">
+              <div class="text-2xl font-medium text-gray-900">Users</div>
+              <div class="text-xs font-light text-gray-600">500 records found</div>
+            </div>
+          
+            <!-- Toolbox -->
+            <div class="ml-auto">
+              <button
+                class="flex items-center px-3 py-2 space-x-2 text-xs font-semibold text-white bg-blue-500 border border-blue-600 rounded">
+                <div class="text-xs">
+                  <i class="fas fa-plus"></i>
+                </div>
+                <span> New User </span>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Table -->
+          <div class="p-6 my-10 overflow-x-scroll text-gray-700 bg-white shadow">
+            <!-- <div class="flex justify-between">
+              <div class="space-y-1">
+                <div class="font-medium text-md">Agents Stats</div>
+                <div class="text-xs text-gray-400">More than 400+ new members</div>
+              </div>
+          
+              <div class="flex items-center space-x-2">
+                <button
+                  class="px-3 py-2 text-xs font-semibold text-white bg-blue-500 border border-blue-600 rounded"
+                >
+                  New Report
+                </button>
+              </div>
+            </div> -->
+          
+            <table class="w-full table-auto">
+              <thead class="text-left text-gray-400">
+                <tr class="border-b border-gray-100">
+                  <th class="py-3 pr-6 text-xs font-semibold uppercase">#</th>
+                  <th class="py-3 pr-6 text-xs font-semibold uppercase"></th>
+                  <th class="py-3 pr-6 text-xs font-semibold uppercase">Name</th>
+                  <th class="py-3 pr-6 text-xs font-semibold uppercase">Color</th>
+                  <th class="py-3 pr-6 text-xs font-semibold uppercase">Race</th>
+                  <th class="py-3 pr-6 text-xs font-semibold uppercase">Plane</th>
+                  <th class="py-3 pr-6 text-xs font-semibold uppercase">Email</th>
+                </tr>
+              </thead>
+              <tbody class="text-sm">
+                <tr>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">1</td>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">
+                    <div class="flex items-center justify-center w-10 h-10 bg-gray-900 rounded-xl">
+                      <div class="font-bold text-white uppercase">l</div>
+                    </div>
+                  </td>
+          
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">
+                    Liliana Vess
+                  </td>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">Black</td>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">
+                    Human Planeswalker
+                  </td>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">Dominaria</td>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">
+                    lili@dominaria.com
+                  </td>
+                </tr>
+          
+                <tr>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">2</td>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">
+                    <div class="flex items-center justify-center w-10 h-10 bg-blue-600 rounded-xl">
+                      <div class="font-bold text-white uppercase">J</div>
+                    </div>
+                  </td>
+          
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">
+                    Jace Beleren
+                  </td>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">Blue</td>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">
+                    Human planeswalker
+                  </td>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">Vryn</td>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">
+                    jace@vryn.com
+                  </td>
+                </tr>
+          
+                <tr>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">3</td>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">
+                    <div class="flex items-center justify-center w-10 h-10 bg-red-500 rounded-xl">
+                      <div class="font-bold text-white uppercase">c</div>
+                    </div>
+                  </td>
+          
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">
+                    Chandra Nalaar
+                  </td>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">Red</td>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">
+                    Human Planeswalker
+                  </td>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">Kaladesh</td>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">
+                    chandra@kaladesh.com
+                  </td>
+                </tr>
+          
+                <tr>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">3</td>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">
+                    <div class="flex items-center justify-center w-10 h-10 border border-gray-200 rounded-xl">
+                      <div class="font-bold text-gray-600 uppercase">e</div>
+                    </div>
+                  </td>
+          
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">
+                    Ajani Goldmane
+                  </td>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">Red</td>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">
+                    Nacatl leonin planeswalker
+                  </td>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">Naya</td>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">
+                    ajani@naya.com
+                  </td>
+                </tr>
+          
+                <tr>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">3</td>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">
+                    <div class="flex items-center justify-center w-10 h-10 bg-green-500 rounded-xl">
+                      <div class="font-bold text-white uppercase">n</div>
+                    </div>
+                  </td>
+          
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">
+                    Nissa Revane
+                  </td>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">Red</td>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">
+                    Elf Planeswalker
+                  </td>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">Zendikar</td>
+                  <td class="py-4 pr-6 font-light border-b border-gray-100">
+                    nissa@zendikar.com
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="flex text-xs text-gray-500">
+            <div class="flex items-center justify-center w-10 h-8 mr-1 bg-white rounded-full shadow cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="w-4 h-4 feather feather-chevron-left">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </div>
+          
+            <div class="flex h-8 font-medium bg-white rounded-full shadow">
+              <div
+                class="items-center justify-center hidden w-10 leading-5 transition duration-150 ease-in rounded-full cursor-pointer md:flex">
+                1
+              </div>
+              <div
+                class="items-center justify-center hidden w-10 leading-5 text-white transition duration-150 ease-in bg-blue-500 rounded-full cursor-pointer md:flex">
+                2
+              </div>
+              <div
+                class="items-center justify-center hidden w-10 leading-5 transition duration-150 ease-in rounded-full cursor-pointer md:flex">
+                3
+              </div>
+              <div
+                class="items-center justify-center hidden w-10 leading-5 transition duration-150 ease-in rounded-full cursor-pointer md:flex">
+                ...
+              </div>
+              <div
+                class="items-center justify-center hidden w-10 leading-5 transition duration-150 ease-in rounded-full cursor-pointer md:flex">
+                13
+              </div>
+              <div
+                class="items-center justify-center hidden w-10 leading-5 transition duration-150 ease-in rounded-full cursor-pointer md:flex">
+                14
+              </div>
+              <div
+                class="items-center justify-center hidden w-10 leading-5 transition duration-150 ease-in rounded-full cursor-pointer md:flex">
+                15
+              </div>
+              <div
+                class="flex items-center justify-center w-10 h-8 leading-5 text-white transition duration-150 ease-in bg-blue-500 rounded-full cursor-pointer md:hidden">
+                2
+              </div>
+            </div>
+            <div class="flex items-center justify-center w-10 h-8 ml-1 bg-white rounded-full shadow cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="w-4 h-4 feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </div>
+          </div>
+          
+          <!-- <div class="flex space-x-2">
+            <a
+              href="#"
+              class="flex items-center justify-center border border-gray-300 rounded-full shadow-md hover:bg-gray-200 w-7 h-7"
+            >
+              <div class="text-xs text-gray-500">
+                <i class="fas fa-caret-left"></i>
+              </div>
+            </a>
+          
+            <a
+              href="#"
+              class="flex items-center justify-center border border-gray-300 rounded-full shadow-md hover:bg-gray-200 w-7 h-7"
+            >
+              <div class="text-xs text-gray-500">1</div>
+            </a>
+          
+            <a
+              href="#"
+              class="flex items-center justify-center bg-gray-200 border border-gray-300 rounded-full shadow-md w-7 h-7"
+            >
+              <div class="text-xs text-gray-500">2</div>
+            </a>
+            <a
+              href="#"
+              class="flex items-center justify-center border border-gray-300 rounded-full shadow-md hover:bg-gray-200 w-7 h-7"
+            >
+              <div class="text-xs text-gray-500">3</div>
+            </a>
+            <a
+              href="#"
+              class="flex items-center justify-center border border-gray-300 rounded-full shadow-md hover:bg-gray-200 w-7 h-7"
+            >
+              <div class="text-xs text-gray-500">4</div>
+            </a>
+          
+            <a
+              href="#"
+              class="flex items-center justify-center border border-gray-300 rounded-full shadow-md hover:bg-gray-200 w-7 h-7"
+            >
+              <div class="text-xs text-gray-500">5</div>
+            </a>
+          
+            <a
+              href="#"
+              class="flex items-center justify-center border border-gray-300 rounded-full shadow-md hover:bg-gray-200 w-7 h-7"
+            >
+              <div class="text-xs text-gray-500">
+                <i class="fas fa-caret-right"></i>
+              </div>
+            </a>
+          </div> -->
+          
+          <!-- <div class="py-2">
+            <nav class="block">
+              <ul class="flex flex-wrap pl-0 list-none rounded">
+                <li>
+                  <a
+                    href="#"
+                    class="relative flex items-center justify-center w-8 h-8 p-0 mx-1 text-xs font-semibold leading-tight text-white bg-gray-500 border border-gray-500 border-solid rounded-full first:ml-0"
+                  >
+                    1
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="relative flex items-center justify-center w-8 h-8 p-0 mx-1 text-xs font-semibold leading-tight text-gray-500 bg-white border border-gray-500 border-solid rounded-full first:ml-0"
+                  >
+                    2
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="relative flex items-center justify-center w-8 h-8 p-0 mx-1 text-xs font-semibold leading-tight text-gray-500 bg-white border border-gray-500 border-solid rounded-full first:ml-0"
+                  >
+                    3
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="relative flex items-center justify-center w-8 h-8 p-0 mx-1 text-xs font-semibold leading-tight text-gray-500 bg-white border border-gray-500 border-solid rounded-full first:ml-0"
+                  >
+                    4
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="relative flex items-center justify-center w-8 h-8 p-0 mx-1 text-xs font-semibold leading-tight text-gray-500 bg-white border border-gray-500 border-solid rounded-full first:ml-0"
+                  >
+                    5
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div> -->        </div>
+      </div>
+    </div>
+    
+  </body>
+</html>

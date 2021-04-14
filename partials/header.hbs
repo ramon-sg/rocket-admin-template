@@ -1,0 +1,74 @@
+<header class="mb-1 bg-white shadow">
+  <div class="flex w-full h-14">
+    <div class="flex justify-between w-full">
+      <!-- Sidebar menu -->
+      <a @click="sidebar=true" class="flex items-center justify-center px-8 border-r border-gray-200 md:hidden">
+        <i class="fas fa-bars"></i>
+      </a>
+
+      <!-- Search -->
+      <div class="flex items-center justify-center w-full px-8 space-x-3">
+        <a href="#">
+          <div class="text-gray-400 text-md hover:text-gray-500">
+            <i class="fas fa-search"></i>
+          </div>
+        </a>
+
+        <input class="w-full h-full text-xs outline-none" type="text" placeholder="Search..." />
+      </div>
+
+      <!-- User Menu -->
+      <button x-data="{ 'isOpen': false }" @click="isOpen = !isOpen" @click.away="isOpen = false"
+        class="flex items-center flex-shrink-0 h-full px-8 ml-auto border-l border-gray-200 focus:outline-none">
+        <div class="flex items-center text-xs">
+          <div
+            class="relative z-10 flex items-center justify-center text-sm font-bold text-white uppercase bg-blue-500 rounded-full shadow-lg w-7 h-7">
+            j
+          </div>
+
+          <div class="hidden ml-1 md:block">Jace Beleren</div>
+
+          <div class="relative ml-3 text-gray-500">
+            <i class="fas fa-angle-down"></i>
+
+            <!-- Menu -->
+            <div x-show="isOpen" x-transition:enter="transition ease-out origin-top-left duration-200"
+              x-transition:enter-start="opacity-0 transform scale-90"
+              x-transition:enter-end="opacity-100 transform scale-100"
+              x-transition:leave="transition origin-top-left ease-in duration-100"
+              x-transition:leave-start="opacity-100 transform scale-100"
+              x-transition:leave-end="opacity-0 transform scale-90"
+              class="absolute right-0 z-20 w-48 mt-2 overflow-hidden font-normal bg-white border rounded shadow">
+              <div class="flex flex-col text-sm text-left">
+                <a class="flex items-center px-4 py-2 hover:bg-gray-100" href="#">
+                  <div class="w-5 mr-2">
+                    <i class="far fa-user"></i>
+                  </div>
+
+                  <div>Settings</div>
+                </a>
+
+                <a class="flex items-center px-4 py-2 hover:bg-gray-100" href="#">
+                  <div class="w-5 mr-2">
+                    <i class="fas fa-key"></i>
+                  </div>
+
+                  <div>Change Password</div>
+                </a>
+
+                <div class="bg-gray-200 border-b"></div>
+                <a class="flex items-center px-4 py-2 hover:bg-gray-100" href="#">
+                  <div class="w-5 mr-2">
+                    <i class="fas fa-sign-out-alt"></i>
+                  </div>
+
+                  <div>Logout</div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+</header>

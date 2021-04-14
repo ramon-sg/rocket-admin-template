@@ -1,0 +1,21 @@
+{
+  "name": "rocket-admin-template",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite --port 5000",
+    "build": "vite build",
+    "build:docs": "vite build --outDir docs",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "alpinejs": "^2.8.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "postcss": "^8.2.10",
+    "tailwindcss": "^2.1.1",
+    "vite": "^2.1.5",
+    "vite-plugin-handlebars": "^1.5.1"
+  }
+}

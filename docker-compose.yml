@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bash -c "yarn install && yarn dev"
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/web
+      - ./data/history:/history
