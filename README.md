@@ -1,6 +1,6 @@
 # Rocket admin template
 
-![Rocket admin template preview](resources/media/logo.png)
+![Rocket admin template preview](resources/logo.png)
 
 # Preview
 
