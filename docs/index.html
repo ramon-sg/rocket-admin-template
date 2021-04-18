@@ -31,7 +31,7 @@
         x-transition:enter-start="transform -translate-x-full" x-transition:enter-end="transform translate-x-0"
         x-transition:leave="transition duration-300" x-transition:leave-start="transform"
         x-transition:leave-end="transform -translate-x-full"
-        class="md:!block z-20 flex-shrink-0 fixed top-0 left-0 w-60 bg-blueGray-800 h-screen">
+        class="md:!block z-20 flex-shrink-0 fixed top-0 left-0 w-60 bg-blueGray-800 h-screen overflow-y-auto">
         <a href="/" class="flex items-center flex-shrink-0 px-6 bg-blue-600 h-14">
           <img class="h-9" src="/assets/logo.32fb5798.png" alt="" />
         </a>
@@ -111,9 +111,9 @@
           <div class="flex w-full h-14">
             <div class="flex justify-between w-full">
               <!-- Sidebar menu -->
-              <a @click="sidebar=true" class="flex items-center justify-center px-8 border-r border-gray-200 md:hidden">
+              <button @click="sidebar=true" class="flex items-center justify-center px-8 border-r border-gray-200 md:hidden">
                 <i class="fas fa-bars"></i>
-              </a>
+              </button>
         
               <!-- Search -->
               <div class="flex items-center justify-center w-full px-8 space-x-3">
