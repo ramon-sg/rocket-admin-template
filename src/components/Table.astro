@@ -1,0 +1,38 @@
+<div class="bg-white shadow text-gray-700 overflow-x-scroll py-6 my-10">
+  <table class="w-full table-auto">
+    <slot />
+  </table>
+</div>
+
+<style is:global>
+  table {
+    & td,
+    & th {
+      @apply first:pl-6 last:pr-6;
+    }
+
+    & thead {
+      @apply text-left text-gray-400;
+
+      & tr {
+        @apply border-b border-gray-100;
+      }
+
+      & th {
+        @apply py-3 pr-6 text-xs font-semibold uppercase;
+      }
+    }
+
+    & tbody tr {
+      @apply hover:bg-gray-50;
+
+      & td {
+        @apply py-4 pr-6 font-light border-b border-gray-100;
+      }
+
+      &:last-child td {
+        @apply border-b-0;
+      }
+    }
+  }
+</style>

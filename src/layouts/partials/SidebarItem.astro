@@ -1,0 +1,31 @@
+---
+interface Props {
+  name: string;
+  icon?: string;
+  href: string;
+}
+
+const { icon = "far fa-circle", name, href } = Astro.props;
+
+const active = Astro.url.pathname == href;
+---
+
+<a
+  href={href}
+  class:list={[
+    "flex items-center border-l-4 mr-5 pr-4 pl-5 py-2 space-x-3 text-sm font-light",
+    {
+      ["border-blue-500 bg-blue-500 bg-opacity-10 "]: active,
+      ["hover:border-blue-500 hover:bg-blue-500 hover:bg-opacity-10 border-transparent"]:
+        !active,
+    },
+  ]}
+>
+  <div class="text-xs w-5">
+    <i class={icon}></i>
+  </div>
+
+  <div class="w-full">{name}</div>
+
+  <div class="text-xs w-5 ml-auto"></div>
+</a>

@@ -1,0 +1,37 @@
+---
+import SidebarTitle from "./SidebarTitle.astro";
+import SidebarItem from "./SidebarItem.astro";
+---
+
+<div
+  x-show="sidebar"
+  @click="sidebar=false"
+  class="absolute top-0 w-screen h-screen bg-black bg-opacity-60 md:hidden"
+>
+</div>
+
+<div
+  x-show="sidebar"
+  x-transition:enter="transition duration-300"
+  x-transition:enter-start="transform -translate-x-full"
+  x-transition:enter-end="transform translate-x-0"
+  x-transition:leave="transition duration-300"
+  x-transition:leave-start="transform"
+  x-transition:leave-end="transform -translate-x-full"
+  class="md:!block flex-shrink-0 fixed top-0 left-0 w-60 bg-slate-800 h-screen"
+>
+  <div class="h-14 flex items-center px-6 flex-shrink-0 bg-blue-600">
+    <a href="/">
+      <img class="h-9" src="/images/logo.png" alt="" />
+    </a>
+  </div>
+
+  <div class="flex flex-col text-gray-300">
+    <SidebarTitle name="Shop" />
+    <SidebarItem href="/users" name="Users" icon="fas fa-users" />
+    <SidebarItem href="/products" name="Products" icon="far fa-list-alt" />
+
+    <SidebarTitle name="System" />
+    <SidebarItem href="/setup" name="Setup" />
+  </div>
+</div>

@@ -1,0 +1,94 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import AddLink from "../components/AddLink.astro";
+import Table from "../components/Table.astro";
+import Letter from "../components/Letter.astro";
+import Paginator from "../components/Paginator.astro";
+
+const TITLE = "Users";
+---
+
+<Layout title={TITLE} withSearch>
+  <Card title={TITLE} description="500 records found">
+    <section slot="toolbox">
+      <AddLink label="Add User" href="/" />
+    </section>
+
+    <Table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th></th>
+          <th>Name</th>
+          <th>Color</th>
+          <th>Race</th>
+          <th>Plane</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+
+      <tbody class="text-sm">
+        <tr>
+          <td>1</td>
+          <td><Letter value="l" /></td>
+
+          <td> Liliana Vess</td>
+          <td>Black</td>
+          <td> Human Planeswalker</td>
+          <td>Dominaria</td>
+          <td> lili@dominaria.com</td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td><Letter value="J" color="blue" /></td>
+
+          <td> Jace Beleren</td>
+          <td>Blue</td>
+          <td> Human planeswalker</td>
+          <td>Vryn</td>
+          <td> jace@vryn.com</td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td><Letter value="C" color="red" /></td>
+          <td> Chandra Nalaar</td>
+          <td>Red</td>
+          <td> Human Planeswalker</td>
+          <td>Kaladesh</td>
+          <td> chandra@kaladesh.com</td>
+
+          <tr>
+            <td>3</td>
+            <td>
+              <Letter value="A" color="white" />
+            </td>
+
+            <td> Ajani Goldmane</td>
+            <td>Red</td>
+            <td> Nacatl leonin planeswalker</td>
+            <td>Naya</td>
+            <td> ajani@naya.com</td>
+          </tr>
+
+          <tr>
+            <td>3</td>
+            <td>
+              <Letter value="N" color="green" />
+            </td>
+
+            <td> Nissa Revane</td>
+            <td>Red</td>
+            <td> Elf Planeswalker</td>
+            <td>Zendikar</td>
+            <td> nissa@zendikar.com</td>
+          </tr>
+        </tr>
+      </tbody>
+    </Table>
+
+    <Paginator />
+  </Card>
+</Layout>

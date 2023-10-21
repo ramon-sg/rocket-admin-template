@@ -1,0 +1,112 @@
+---
+interface Props {
+  /**
+   * Whether to show the search bar or not.
+   * @default false
+   */
+  withSearch?: boolean;
+  searchPlaceholder?: string;
+}
+
+const { searchPlaceholder = "Search...", withSearch = false } = Astro.props;
+
+import Letter from "../../components/Letter.astro";
+---
+
+<header class="shadow bg-white mb-1">
+  <div class="h-14 w-full flex">
+    <div class="w-full flex justify-between">
+      <!-- Sidebar menu -->
+      <a
+        @click="sidebar=true"
+        class="md:hidden flex px-8 items-center justify-center border-r border-gray-200 cursor-pointer"
+      >
+        <i class="fas fa-bars"></i>
+      </a>
+
+      <!-- Search -->
+      {
+        withSearch && (
+          <div class="w-full flex items-center justify-center space-x-3 px-8">
+            <a href="#">
+              <div class="text-md text-gray-400 hover:text-gray-500">
+                <i class="fas fa-search" />
+              </div>
+            </a>
+
+            <input
+              class="text-xs w-full h-full outline-none"
+              type="text"
+              placeholder={searchPlaceholder}
+            />
+          </div>
+        )
+      }
+
+      <!-- User Menu -->
+      <button
+        x-data="{ 'isOpen': false }"
+        @click="isOpen = true"
+        @click.away="isOpen = false"
+        class="flex-shrink-0 flex items-center px-8 h-full border-l border-gray-200 ml-auto focus:outline-none"
+      >
+        <div class="flex items-center text-xs">
+          <Letter value="J" color="blue" circle size="small" />
+          <div class="ml-1 hidden md:block">Jace Beleren</div>
+
+          <div class="relative ml-3 text-gray-500">
+            <i class="fas fa-angle-down"></i>
+
+            <!-- Menu -->
+            <div
+              x-show="isOpen"
+              x-transition:enter="transition ease-out origin-top-left duration-200"
+              x-transition:enter-start="opacity-0 transform scale-90"
+              x-transition:enter-end="opacity-100 transform scale-100"
+              x-transition:leave="transition origin-top-left ease-in duration-100"
+              x-transition:leave-start="opacity-100 transform scale-100"
+              x-transition:leave-end="opacity-0 transform scale-90"
+              class="absolute font-normal bg-white shadow overflow-hidden rounded w-48 border mt-2 right-0 z-20"
+            >
+              <div class="flex flex-col text-sm text-left">
+                <a
+                  class="flex items-center px-4 py-2 hover:bg-gray-100"
+                  href="#"
+                >
+                  <div class="w-5 mr-2">
+                    <i class="far fa-user"></i>
+                  </div>
+
+                  <div>Settings</div>
+                </a>
+
+                <a
+                  class="flex items-center px-4 py-2 hover:bg-gray-100"
+                  href="#"
+                >
+                  <div class="w-5 mr-2">
+                    <i class="fas fa-key"></i>
+                  </div>
+
+                  <div>Change Password</div>
+                </a>
+
+                <div class="border-b bg-gray-200"></div>
+                <a
+                  class="flex items-center px-4 py-2 hover:bg-gray-100"
+                  href="#"
+                >
+                  <div class="w-5 mr-2">
+                    <i class="fas fa-sign-out-alt"></i>
+                  </div>
+
+                  <div>Logout</div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+</header>

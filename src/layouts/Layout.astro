@@ -1,0 +1,44 @@
+---
+interface Props {
+  title: string;
+  withSearch?: boolean;
+}
+
+const { title, withSearch } = Astro.props;
+
+import Sidebar from "./partials/Sidebar.astro";
+import Header from "./partials/Header.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+
+    <title>{title}</title>
+  </head>
+  <body x-data="{ sidebar: false }" class="font-sans bg-blueGray-100">
+    <div class="flex">
+      <Sidebar />
+
+      <div class="flex flex-col h-screen w-full md:pl-60">
+        <Header withSearch={withSearch} />
+
+        <div class="flex-1 h-screen w-full overflow-y-auto p-8">
+          <slot />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

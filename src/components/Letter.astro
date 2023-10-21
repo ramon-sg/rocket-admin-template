@@ -1,0 +1,48 @@
+---
+interface Props {
+  value: string;
+  color?: "gray" | "blue" | "red" | "white" | "green";
+  size?: "small" | "medium" | "large";
+
+  /**
+   * @default false
+   */
+  circle?: boolean;
+}
+
+const { value, color = "gray", circle = false, size = "medium" } = Astro.props;
+---
+
+<div
+  class:list={[
+    "flex items-center justify-center",
+    {
+      ["w-8 h-8"]: size === "small",
+      ["w-10 h-10"]: size === "medium",
+      ["w-16 h-16"]: size === "large",
+      ["rounded-full"]: circle,
+      ["rounded-xl"]: !circle,
+      ["bg-gray-900"]: color === "gray",
+      ["bg-blue-600"]: color === "blue",
+      ["bg-red-500"]: color === "red",
+      ["bg-green-500"]: color === "green",
+      ["border border-gray-200"]: color === "white",
+    },
+  ]}
+>
+  <div
+    class:list={[
+      " font-bold uppercase",
+      {
+        ["text-white"]:
+          color === "gray" ||
+          color === "blue" ||
+          color === "red" ||
+          color === "green",
+        ["text-gray-600"]: color === "white",
+      },
+    ]}
+  >
+    {value}
+  </div>
+</div>

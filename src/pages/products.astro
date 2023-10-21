@@ -1,0 +1,84 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import AddLink from "../components/AddLink.astro";
+import Table from "../components/Table.astro";
+import Letter from "../components/Letter.astro";
+
+const TITLE = "Products";
+---
+
+<Layout title={TITLE} withSearch>
+  <Card title={TITLE} description="5 records found">
+    <section slot="toolbox">
+      <AddLink label="Add prodct" href="/" />
+    </section>
+
+    <Table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+
+      <tbody class="text-sm">
+        <tr>
+          <td>1</td>
+
+          <td>
+            <b
+              >MTG Collector Booster individual: The Lord of the Rings: Tales of
+              Middle-Earth</b
+            >
+          </td>
+          <td>$39.990</td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+
+          <td>
+            <b
+              >Playmat Ultra Pro: The Lord of the Rings: Tales of Middle-earth -
+              Frodo Holofoil</b
+            >
+          </td>
+          <td>$38.990</td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+
+          <td>MTG Jumpstart Boosters: March of the Machine <b></b></td>
+          <td>$6.490</td>
+        </tr>
+
+        <tr>
+          <td>4</td>
+
+          <td>
+            <b
+              >Protectores Dragon Shield: Brushed Art - Rayalda - Constellations
+              (100pzs)</b
+            ></td
+          >
+          <td>$13.990</td>
+        </tr>
+
+        <tr>
+          <td>5</td>
+
+          <td>
+            <b
+              >Protectores Dragon Shield: Toploading Perfect Fit Sleeves - Smoke
+              - Standard (100pzs)</b
+            ></td
+          >
+          <td>$5.990</td>
+        </tr>
+      </tbody>
+    </Table>
+  </Card>
+</Layout>
