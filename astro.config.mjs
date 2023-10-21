@@ -5,7 +5,6 @@ import alpinejs from "@astrojs/alpinejs";
 
 import postcssNesting from "tailwindcss/nesting";
 import tailwindcss from "tailwindcss";
-import autoprefixer from "autoprefixer";
 
 // https://astro.build/config
 export default defineConfig({
@@ -24,7 +23,7 @@ export default defineConfig({
   vite: {
     css: {
       postcss: {
-        plugins: [postcssNesting, tailwindcss, autoprefixer],
+        plugins: [postcssNesting, tailwindcss],
       },
     },
   },
