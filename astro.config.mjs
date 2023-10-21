@@ -3,7 +3,6 @@ import tailwind from "@astrojs/tailwind";
 
 import alpinejs from "@astrojs/alpinejs";
 
-import postcssImport from "postcss-import";
 import postcssNesting from "tailwindcss/nesting";
 import tailwindcss from "tailwindcss";
 import autoprefixer from "autoprefixer";
@@ -25,7 +24,7 @@ export default defineConfig({
   vite: {
     css: {
       postcss: {
-        plugins: [postcssImport, postcssNesting, tailwindcss, autoprefixer],
+        plugins: [postcssNesting, tailwindcss, autoprefixer],
       },
     },
   },
