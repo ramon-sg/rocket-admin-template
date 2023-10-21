@@ -8,7 +8,7 @@
 
 ![Rocket admin template preview](resources/preview.png)
 
-### Demo Site: [[Here]](https://ramon-sg.github.io/rocket-admin-template/)
+### Demo Site: [[Here]](https://rocket-admin-template.clouw.com)
 
 ## Features
 
